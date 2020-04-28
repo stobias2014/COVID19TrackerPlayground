@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>COVID 19 Tracker Home</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<h1 id="page_header">COVID 19 Confirmed Cases</h1>
+	<br>
+	<div class="row justify-content-md-center">
+
+		<div class="col-4 ">
+			<div class="card text-center">
+				<div class="card-body">
+					<h5 class="card-title">Total Global Cases</h5>
+					<h1 class="card-text" th:text="${totalCases}"></h1>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-4">
+			<div class="card text-center">
+				<div class="card-body">
+					<h5 class="card-title">US Total Cases</h5>
+					<h1 class="card-text" th:text="${usTotalCases}"></h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	
+	<div class="row row-no-gutters">
+		
+			<div class="col-md-8 container">
+				<table
+					class="table table-striped table-bordered table-sm text-center">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col">Country/Region</th>
+							<th scope="col">Latest Total Confirmed Cases</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr scope="row" th:each="entry: ${locationstats}">
+							<td th:text="${entry.key}"></td>
+							<td th:text="${entry.value}"></td>
+						</tr>
+					</tbody>
+				</table>
+		</div>
+	</div>
+
+</body>
+</html>
